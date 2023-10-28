@@ -1,136 +1,141 @@
-# Chicken-disease-calssification-end-to-end
+Certainly, let's rewrite the README.md file in a more professional and layman-friendly manner:
+
+---
+
+# Chicken Disease Classification - End-to-End
 
 ## Workflows
 
-1. Update config.yaml
-2. Update secrets.yaml [Optional]
-3. Update params.yaml
-4. Update the entity # entity is the return type of a function.
-5. Update the configuration manager in src config
-6. Update the components
-7. Update the pipeline 
-8. Update the main.py
-9. Update the dvc.yaml
+1. Update Configuration: Make necessary changes to the configuration file (config.yaml).
+2. (Optional) Update Secrets: If needed, update sensitive information in the secrets file (secrets.yaml).
+3. Update Parameters: Modify parameters in the params file (params.yaml).
+4. Update the Entity: Update the return type of a function in your code.
+5. Update Configuration Manager: Make changes to the configuration manager located in the 'src/config' folder.
+6. Update Components: Modify and enhance the components of your project.
+7. Update the Pipeline: Make updates to the project's data processing pipeline.
+8. Update Main.py: Enhance the main Python script.
+9. Update DVC Configuration: Update the DVC (Data Version Control) configuration for data tracking.
 
+# How to Run?
 
-# How to run?
-### STEPS:
+### Steps:
 
-Clone the repository
+1. Clone the Repository:
+   - Copy the URL of the repository and use the following command to clone it to your local machine:
 
 ```bash
-https://github.com/harshit-sharma1256/Chicken-disease-calssification-end-to-end.git
+git clone https://github.com/harshit-sharma1256/Chicken-disease-calssification-end-to-end.git
 ```
-### STEP 01- Create a conda environment after opening the repository
+
+### Step 01 - Create a Conda Environment:
+
+1. After opening the repository, create a Conda environment using the following commands:
 
 ```bash
 conda create -n chicken python=3.8 -y
 ```
-Note:- Here "chicken" is the environment name.You can use any name here. 
+
+   - Note: You can replace "chicken" with any desired environment name.
 
 ```bash
 conda activate chicken
 ```
-Note:- If you are using latest verion of anaconda just write :-
+
+   - Note: If you are using the latest version of Anaconda, use the following command:
+
 ```bash
 activate chicken/
 ```
 
-### STEP 02- install the requirements
+### Step 02 - Install Requirements:
+
+Install the required Python packages by running:
+
 ```bash
 pip install -r requirements.txt
 ```
 
+### Running the Application:
+
+To run the application, execute the following command:
 
 ```bash
-# Finally run the following command
 python app.py
 ```
 
-Now,
+Afterward, open your web browser and navigate to your local host and port to access the application.
+
+### DVC Commands:
+
+1. Initialize DVC:
+
 ```bash
-open up you local host and port
+dvc init
 ```
 
+2. Reproduce DVC Pipeline:
 
-### DVC cmd
+```bash
+dvc repro
+```
 
-1. dvc init
-2. dvc repro
-3. dvc dag
+3. Visualize DVC Pipeline:
 
+```bash
+dvc dag
+```
 
+# AWS CI/CD Deployment with GitHub Actions
 
-# AWS-CICD-Deployment-with-Github-Actions
+## 1. Login to AWS Console:
 
-## 1. Login to AWS console.
+Access your AWS account and log in to the AWS Management Console.
 
-## 2. Create IAM user for deployment
+## 2. Create IAM User for Deployment:
 
-	#with specific access
+Create an IAM user in AWS with specific access permissions, including EC2 and ECR.
 
-	1. EC2 access : It is virtual machine
+- EC2 Access: This provides access to virtual machines.
+- ECR: Elastic Container Registry, used to store Docker images in AWS.
 
-	2. ECR: Elastic Container registry to save your docker image in aws
+## 3. Create ECR Repository:
 
+Create an Elastic Container Registry repository to store and manage Docker images. Save the repository URI for later use.
 
-	#Description: About the deployment
+## 4. Create an EC2 Machine:
 
-	1. Build docker image of the source code
+Set up an EC2 instance with the Ubuntu operating system.
 
-	2. Push your docker image to ECR
+## 5. Install Docker on the EC2 Machine:
 
-	3. Launch Your EC2 
+Optionally, update and upgrade the EC2 instance and install Docker to manage containers.
 
-	4. Pull Your image from ECR in EC2
+```bash
+# Optional
+sudo apt-get update -y
+sudo apt-get upgrade
 
-	5. Lauch your docker image in EC2
+# Required
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker ubuntu
+newgrp docker
+```
 
-	#Policy:
+## 6. Configure EC2 as Self-Hosted Runner:
 
-	1. AmazonEC2ContainerRegistryFullAccess
+Configure the EC2 instance as a self-hosted runner for GitHub Actions. This is done by following the settings in the GitHub repository under "Actions."
 
-	2. AmazonEC2FullAccess
+## 7. Setup GitHub Secrets:
 
-	
-## 3. Create ECR repo to store/save docker image
-    - Save the URI: Paste your Copied URI Link here
+In the GitHub repository settings, set up secrets for AWS credentials, ECR URI, and other necessary information.
 
-	
-## 4. Create EC2 machine (Ubuntu) 
+- `AWS_ACCESS_KEY_ID`: Your AWS access key.
+- `AWS_SECRET_ACCESS_KEY`: Your AWS secret access key.
+- `AWS_REGION`: Your AWS region (e.g., us-east-1).
+- `AWS_ECR_LOGIN_URI`: The ECR login URI.
+- `ECR_REPOSITORY_NAME`: The name of your ECR repository.
 
-## 5. Open EC2 and Install docker in EC2 Machine:
-	
-	
-	#optinal
+---
 
-	sudo apt-get update -y
-
-	sudo apt-get upgrade
-	
-	#required
-
-	curl -fsSL https://get.docker.com -o get-docker.sh
-
-	sudo sh get-docker.sh
-
-	sudo usermod -aG docker ubuntu
-
-	newgrp docker
-	
-# 6. Configure EC2 as self-hosted runner:
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
-
-
-# 7. Setup github secrets:
-
-    AWS_ACCESS_KEY_ID=
-
-    AWS_SECRET_ACCESS_KEY=
-
-    AWS_REGION = us-east-1
-
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
-
-    ECR_REPOSITORY_NAME = simple-app
-
+This revised README.md provides a more professional and easy-to-follow guide for both setting up your project and deploying it to AWS using GitHub Actions.
