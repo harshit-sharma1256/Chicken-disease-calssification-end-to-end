@@ -137,5 +137,3 @@ In the GitHub repository settings, set up secrets for AWS credentials, ECR URI, 
 - `ECR_REPOSITORY_NAME`: The name of your ECR repository.
 
 ---
-
-This revised README.md provides a more professional and easy-to-follow guide for both setting up your project and deploying it to AWS using GitHub Actions.
