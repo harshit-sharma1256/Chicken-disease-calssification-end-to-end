@@ -133,7 +133,7 @@ In the GitHub repository settings, set up secrets for AWS credentials, ECR URI, 
 - `AWS_ACCESS_KEY_ID`: Your AWS access key.
 - `AWS_SECRET_ACCESS_KEY`: Your AWS secret access key.
 - `AWS_REGION`: Your AWS region (e.g., us-east-1).
-- `AWS_ECR_LOGIN_URI`: The ECR login URI.
-- `ECR_REPOSITORY_NAME`: The name of your ECR repository.
+- `AWS_ECR_LOGIN_URI`: The ECR login URI.(Part before the '/')
+- `ECR_REPOSITORY_NAME`: The name of your ECR repository.(Part after the '/')
 
 ---
