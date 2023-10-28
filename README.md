@@ -26,11 +26,15 @@ https://github.com/harshit-sharma1256/Chicken-disease-calssification-end-to-end.
 ```bash
 conda create -n chicken python=3.8 -y
 ```
+Note:- Here "chicken" is the environment name.You can use any name here. 
 
 ```bash
 conda activate chicken
 ```
-
+Note:- If you are using latest verion of anaconda just write :-
+```bash
+activate chicken/
+```
 
 ### STEP 02- install the requirements
 ```bash
