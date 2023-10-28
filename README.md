@@ -1,7 +1,3 @@
-Certainly, let's rewrite the README.md file in a more professional and layman-friendly manner:
-
----
-
 # Chicken Disease Classification - End-to-End
 
 ## Workflows
