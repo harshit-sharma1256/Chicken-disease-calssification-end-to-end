@@ -6,12 +6,29 @@ import os
 from pathlib import Path  
 
 class ConfigurationManager:
+  """
+  Class Definition - ConfigurationManager:
+
+This class manages the configuration settings for the entire project.
+The __init__ method initializes the ConfigurationManager instance. It reads the project's configuration (config.yaml) and parameters (params.yaml) from specified file paths.
+It creates necessary directories based on the artifacts_root specified in the configuration.
+
+  """
     def __init__(self,config_filepath = CONFIG_FILE_PATH,params_filepath = PARAMS_FILE_PATH ) -> None:
         self.config = read_yaml(config_filepath)
         self.params = read_yaml(params_filepath)
 
         create_directories([self.config.artifacts_root])
 
+"""
+Method - get_data_ingestion_config:
+
+->This method retrieves the configuration specific to the data_ingestion stage (data_ingestion section in config.yaml).
+->It creates directories based on the root_dir specified in the data_ingestion configuration.
+->It then uses this configuration to create a DataIngestionConfig data class object, which is defined in cnnClassifier.entity.config_entity.
+->The method returns the created DataIngestionConfig object.
+
+"""
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = self.config.data_ingestion
 
